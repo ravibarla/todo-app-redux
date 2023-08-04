@@ -22,7 +22,6 @@ export default function todoReducer(state = initialState, action) {
       return {
         ...state,
         todos: state.todos.map((todo, i) => {
-          
           if (i === action.index) {
             todo.completed = !todo.completed;
           }
