@@ -1,4 +1,5 @@
 import { ADD_NOTE, DELETE_NOTE } from "../../redux/actions/noteAction";
+
 const initialState = {
   notes: [
     {

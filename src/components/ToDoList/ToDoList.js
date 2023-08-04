@@ -3,11 +3,12 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { toggleTodo } from "../../redux/actions/todoActions";
 function ToDoList() {
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todoReducer.todos);
   const dispatch = useDispatch();
   return (
     <div className="container">
       <ul>
+        {console.log(todos)}
         {todos.map((todo, index) => (
           <li key={index}>
             <span className="content">{todo.text}</span>
