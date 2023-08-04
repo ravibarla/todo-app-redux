@@ -1,5 +1,5 @@
 import "./ToDoList.css";
-import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { toggleTodo } from "../../redux/actions/todoActions";
 function ToDoList() {
@@ -9,7 +9,7 @@ function ToDoList() {
     <div className="container">
       <ul>
         {todos.map((todo, index) => (
-          <li key={todo.id}>
+          <li key={index}>
             <span className="content">{todo.text}</span>
             <span className={todo.completed ? "completed" : "pending"}>
               {todo.completed ? "Completed" : "Pending"}
