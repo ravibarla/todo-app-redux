@@ -5,7 +5,7 @@ const intitialState = {
 
 const notificationSlice = createSlice({
   name: "notification",
-  initialState,
+  intitialState,
   reducers: {},
   extraReducers: {
     "todo/add": (state, action) => {
