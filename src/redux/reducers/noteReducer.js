@@ -4,7 +4,7 @@ const initialState = {
   notes: [
     {
       text: "Note 1",
-      createdOn: new Date(),
+      createdOn: new Date().toDateString(),
     },
   ],
 };
@@ -15,7 +15,7 @@ const noteSlice = createSlice({
     add: (state, action) => {
       state.notes.push({
         text: action.payload,
-        createdOn: new Date(),
+        createdOn: new Date().toDateString(),
       });
     },
     delete: (state, action) => {
