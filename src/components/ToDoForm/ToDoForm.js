@@ -12,6 +12,7 @@ function ToDoForm() {
     e.preventDefault();
     setTodoText("");
     // disptach(addTodo(todoText));
+    // console.log("actions : ", actions);
     disptach(actions.add(todoText));
   };
 

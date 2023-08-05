@@ -9,7 +9,6 @@ function ToDoList() {
   return (
     <div className="container">
       <ul>
-        {console.log(todos)}
         {todos.map((todo, index) => (
           <li key={index}>
             <span className="content">{todo.text}</span>
