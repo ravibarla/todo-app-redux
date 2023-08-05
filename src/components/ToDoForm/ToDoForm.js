@@ -5,29 +5,32 @@ import { resetNotification } from "../../redux/reducers/notificationsReducer";
 // import {addTodo} from "../../redux/actions/todoActions";
 import { actions } from "../../redux/reducers/todoReducer";
 import "./ToDoForm.css";
-
+import { Alert } from "reactstrap";
 function ToDoForm() {
   const [todoText, setTodoText] = useState("");
-  const disptach = useDispatch();
+  const dispatch = useDispatch();
   const message = useSelector(notificationSelector);
   if (message) {
     setTimeout(() => {
-      disptach(resetNotification());
+      dispatch(resetNotification());
     }, 3000);
   }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setTodoText("");
     // disptach(addTodo(todoText));
     // console.log("actions : ", actions);
-    disptach(actions.add(todoText));
+    dispatch(actions.add(todoText));
   };
 
   return (
     <div className="container">
-      <div className="alert alert-info" role="alert">
+      {message && <><Alert color="primary">{message}</Alert></>}
+
+      {/* <div className="alert alert-info" role="alert">
         {message}
-      </div>
+      </div> */}
 
       <form onSubmit={handleSubmit}>
         <input

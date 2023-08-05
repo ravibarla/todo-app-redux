@@ -1,15 +1,16 @@
 import { actions } from "./todoReducer";
-
+// import { createSlice } from "@reduxjs/toolkit";
 const { createSlice } = require("@reduxjs/toolkit");
-const intitialState = {
+const initialState = {
   message: "",
 };
 
 const notificationSlice = createSlice({
   name: "notification",
-  intitialState,
+  initialState: initialState,
   reducers: {
     reset: (state, action) => {
+      // console.log(state)
       state.message = "";
     },
   },
@@ -23,6 +24,12 @@ const notificationSlice = createSlice({
       state.message = "todo is created";
     });
   },
+  //   extraReducers: {
+  //     //map object ley-value
+  //     [actions.add]: (state, action) => {
+  //       return state.message = "todo is created";
+  //     },
+  //   },
 });
 export const notificationReducer = notificationSlice.reducer;
 export const resetNotification = notificationSlice.actions.reset;

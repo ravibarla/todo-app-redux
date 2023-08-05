@@ -6,11 +6,13 @@ import store from "./store";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./App.css";
+// import "reactstrap";
 import NoteForm from "./components/NoteForm/NoteForm";
 import NoteList from "./components/NoteList/NoteList";
 import Home from "./components/Home/Home";
 import NavBar from "./components/NavBar/NavBar";
-
+// import "bootstrap";
+import "bootstrap/dist/css/bootstrap.css";
 function App() {
   return (
     <div>
