@@ -1,4 +1,5 @@
-import { deleteNote } from "../../redux/actions/noteAction";
+// import { deleteNote } from "../../redux/actions/noteAction";
+import { actions } from "../../redux/reducers/noteReducer";
 import "./NoteList.css";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -14,7 +15,7 @@ function NoteList() {
             <p className="note-content">{note.text}</p>
             <button
               className="btn btn-danger"
-              onClick={() => dispatch(deleteNote(index))}
+              onClick={() => dispatch(actions.delete(index))}
             >
               Delete
             </button>
