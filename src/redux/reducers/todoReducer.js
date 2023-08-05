@@ -15,8 +15,8 @@ const initialState = {
 //create reducer using redux/toolkit
 const todoSlice = createSlice({
   name: "todo",
-  initialState,
-  reducers: {
+  initialState: initialState,
+  reducer: {
     //this is add action
     add: (state, action) => {
       state.todos.push({
@@ -34,6 +34,7 @@ const todoSlice = createSlice({
     },
   },
 });
+export const todoReducer = todoSlice.reducer;
 //reducer using redux
 
 // export default function todoReducer(state = initialState, action) {

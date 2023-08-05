@@ -1,5 +1,5 @@
 // import { ADD_NOTE, DELETE_NOTE } from "../../redux/actions/noteAction";
-const { createState } = require("@reduxjs/toolkit");
+const { createSlice } = require("@reduxjs/toolkit");
 const initialState = {
   notes: [
     {
@@ -8,10 +8,10 @@ const initialState = {
     },
   ],
 };
-const noteSlice = createState({
+const noteSlice = createSlice({
   name: "note",
   initialState: initialState,
-  reducers: {
+  reducer: {
     add: (state, action) => {
       state.notes.push({
         text: action.payload,
@@ -23,7 +23,7 @@ const noteSlice = createState({
     },
   },
 });
-
+export const noteReducer = noteSlice.reducer;
 // export default function noteReducer(state = initialState, action) {
 //   switch (action.type) {
 //     case ADD_NOTE:
