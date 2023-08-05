@@ -8,8 +8,10 @@ import { noteReducer } from "./redux/reducers/noteReducer";
 //   todoReducer,
 // });
 // const store = createStore(todoReducer);
-const store = configureStore({ reducer: { todoReducer, noteReducer } });
+const store = configureStore({
+  reducer: { todoReducer, noteReducer, noteReducer },
+});
 
 // const store = createStore(result);
 
-export default store; 
+export default store;
