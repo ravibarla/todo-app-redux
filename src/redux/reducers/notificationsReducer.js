@@ -6,11 +6,18 @@ const intitialState = {
 const notificationSlice = createSlice({
   name: "notification",
   intitialState,
-  reducers: {},
+  reducers: {
+    reset: (state, action) => {
+      state.message = "";
+    },
+  },
   extraReducers: {
     "todo/add": (state, action) => {
       state.message = "todo is created";
     },
   },
 });
-export const notificationReducer=notificationSlice.reducer
+export const notificationReducer = notificationSlice.reducer;
+export const resetNotification = notificationSlice.actions.reset;
+export const notificationSelector = (state) =>
+  state.notificationReducer.message;
