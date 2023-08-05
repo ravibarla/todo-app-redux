@@ -1,5 +1,5 @@
-import { ADD_NOTE, DELETE_NOTE } from "../../redux/actions/noteAction";
-
+// import { ADD_NOTE, DELETE_NOTE } from "../../redux/actions/noteAction";
+const { createState } = require("@reduxjs/toolkit");
 const initialState = {
   notes: [
     {
@@ -8,20 +8,36 @@ const initialState = {
     },
   ],
 };
-export default function noteReducer(state = initialState, action) {
-  switch (action.type) {
-    case ADD_NOTE:
-      return {
-        ...state,
-        notes: [...state.notes, { text: action.text, createdOn: new Date() }],
-      };
-    case DELETE_NOTE:
-      state.notes.splice(action.index, 1);
-      return {
-        ...state,
-        notes: [...state.notes],
-      };
-    default:
-      return state;
-  }
-}
+const noteSlice = createState({
+  name: "note",
+  initialState: initialState,
+  reducers: {
+    add: (state, action) => {
+      state.notes.push({
+        text: action.payload,
+        createdOn: new Date(),
+      });
+    },
+    delete: (state, action) => {
+      state.notes.splice(action.payload, 1);
+    },
+  },
+});
+
+// export default function noteReducer(state = initialState, action) {
+//   switch (action.type) {
+//     case ADD_NOTE:
+//       return {
+//         ...state,
+//         notes: [...state.notes, { text: action.text, createdOn: new Date() }],
+//       };
+//     case DELETE_NOTE:
+//       state.notes.splice(action.index, 1);
+//       return {
+//         ...state,
+//         notes: [...state.notes],
+//       };
+//     default:
+//       return state;
+//   }
+// }
